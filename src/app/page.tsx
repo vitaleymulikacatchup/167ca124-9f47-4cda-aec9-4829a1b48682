@@ -72,7 +72,7 @@ export default function Home() {
             description="Sign up for updates on our latest promotions."
             inputPlaceholder="Your email address"
             buttonText="Subscribe"
-            termsText="We respect your privacy. Unsubscribe at any time."
+            termsText="We respect your privacy. Unsubscribe at any time. unsubscribe"
             onSubmit={(email) => console.log(email)}
             className="bg-pink-100"
             titleClassName="text-gray-800"
