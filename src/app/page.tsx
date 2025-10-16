@@ -1,16 +1,21 @@
 "use client";
-import { ThemeProvider } from "@/providers/ThemeProvider";
-import NavbarStyleMinimal from '@/components/navbar/NavbarStyleMinimal';
+
+import { ThemeProvider } from '@/providers/ThemeProvider';
+import NavbarStyleApple from '@/components/navbar/NavbarStyleApple/NavbarStyleApple';
 import HeroSplit from '@/components/sections/hero/HeroSplit';
-import SplitAbout from '@/components/sections/about/SplitAbout';
-import FeatureCardOne from '@/components/sections/feature/FeatureCardOne';
+import TextAbout from '@/components/sections/about/TextAbout';
+import ProductCardOne from '@/components/sections/product/ProductCardOne';
 import ContactCenter from '@/components/sections/contact/ContactCenter';
 import FooterBase from '@/components/sections/footer/FooterBase';
 
-const assetMap: { id: string; url: string; alt?: string }[] = [
-  { id: "heroImage", url: "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A young couple having milkshakes and pizza at a cozy cafe. Relaxed and joyful atmosphere." },
-  { id: "aboutImage", url: "https://images.pexels.com/photos/5908216/pexels-photo-5908216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Smiling Asian woman spreading tomato sauce on pizza dough while looking at funny female covering eyes with tomato slices in kitchen" },
-  { id: "contactImage", url: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Confident businesswoman using her tablet and phone, smiling outdoors in sunlight." },
+const assetMap = [
+  { id: "hero-image", url: "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A young couple having milkshakes and pizza at a cozy cafe. Relaxed and joyful atmosphere." },
+  { id: "about-image", url: "https://images.pexels.com/photos/5953504/pexels-photo-5953504.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Chef in apron adding fresh basil to tomato sauce pizza in kitchen." },
+  { id: "feature-image", url: "https://images.pexels.com/photos/4833636/pexels-photo-4833636.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A close-up of a hand grabbing a slice from a pizza box with various toppings." },
+  { id: "product-image-1", url: "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A mouthwatering slice of pepperoni pizza with cheese and spices, ideal for any meal." },
+  { id: "product-image-2", url: "https://images.pexels.com/photos/7315010/pexels-photo-7315010.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Top view of friends sharing a large pizza at home, capturing a casual dining moment." },
+  { id: "product-image-3", url: "https://images.pexels.com/photos/6605245/pexels-photo-6605245.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Overhead view of friends sharing pizza and beer at a table indoors in a casual setting." },
+  { id: "contact-image", url: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Confident businesswoman using her tablet and phone, smiling outdoors in sunlight." }
 ];
 
 export default function Home() {
@@ -20,50 +25,58 @@ export default function Home() {
       defaultTextAnimation="entrance-slide"
       borderRadius="rounded"
     >
-      <div id="nav" data-section="nav">
-        <NavbarStyleMinimal brandName="Pizzeria" />
-      </div>
+      <div id="nav" data-section="nav"><NavbarStyleApple navItems={[{name: "Home", id: "home"}, {name: "Menu", id: "menu"}, {name: "About", id: "about"}, {name: "Contact", id: "contact"}]} brandName="Pizzeria" /></div>
       <div id="hero" data-section="hero" className="scroll-mt-24">
         <div className="mx-auto px-4 md:px-6">
           <HeroSplit
-            title="Welcome to Our Authentic Pizzeria"
-            description="Experience the taste of Italy with our traditional recipes."
-            imageSrc="https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-            buttons={[{ text: "See Our Menu", href: "menu" }]}
+            title="Welcome to Our Pizzeria"
+            description="Discover the taste of authentic, hand-crafted pizzas."
+            imageSrc={assetMap.find(a => a.id === "hero-image")?.url}
+            buttons={[{ text: "View Menu", href: "menu" }, { text: "Order Now", href: "order" }]}
+            className="bg-pink-100"
+            titleClassName="text-gray-800"
+            descriptionClassName="text-gray-800"
           />
         </div>
       </div>
       <div id="about" data-section="about" className="scroll-mt-24">
         <div className="mx-auto px-4 md:px-6">
-          <SplitAbout
-            bulletPoints={[
-              { title: "Fresh Ingredients", description: "We use only the fresh ingredients to make your pizza." },
-              { title: "Family Recipe", description: "Our secret family recipe passed down through generations." },
-            ]}
-            imageSrc="https://images.pexels.com/photos/5908216/pexels-photo-5908216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          <TextAbout
+              title="Bringing Tradition to Every Slice"
+              buttons={[{ text: "Learn More", href: "about" }]}
+              className="bg-pink-100"
+              titleClassName="text-gray-800"
           />
         </div>
       </div>
-      <div id="feature" data-section="feature" className="scroll-mt-24">
+      <div id="product" data-section="product" className="scroll-mt-24">
         <div className="mx-auto px-4 md:px-6">
-          <FeatureCardOne
-            features={[
-              { title: "Hand-Tossed Pizza", description: "Every pizza is hand-tossed to perfection.", imageSrc: "https://images.pexels.com/photos/5908216/pexels-photo-5908216.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
-              { title: "Wood-Fired Oven", description: "Authentic wood-fired oven for that perfect crust.", imageSrc: "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" },
+          <ProductCardOne
+            products={[
+              { id: "1", name: "Pepperoni Pizza", price: "$18", imageSrc: assetMap.find(a => a.id === "product-image-1")?.url },
+              { id: "2", name: "Veggie Pizza", price: "$15", imageSrc: assetMap.find(a => a.id === "product-image-2")?.url },
+              { id: "3", name: "Margherita Pizza", price: "$16", imageSrc: assetMap.find(a => a.id === "product-image-3")?.url },
             ]}
-            title="Our Features"
+            title="Our Pizza Selection"
+            className="bg-pink-100"
+            cardNameClassName="text-gray-800"
+            cardPriceClassName="text-gray-800"
           />
         </div>
       </div>
       <div id="contact" data-section="contact" className="scroll-mt-24">
         <div className="mx-auto px-4 md:px-6">
           <ContactCenter
-            tag="Get in Touch"
-            title="Contact Us"
-            description="We would love to hear from you. Call us or send a message."
+            tag="Newsletter"
+            title="Stay in Touch"
+            description="Sign up for updates on our latest promotions."
             inputPlaceholder="Your email address"
-            buttonText="Send Message"
-            termsText="We respect your privacy."
+            buttonText="Subscribe"
+            termsText="We respect your privacy. Unsubscribe at any time."
+            onSubmit={(email) => console.log(email)}
+            className="bg-pink-100"
+            titleClassName="text-gray-800"
+            descriptionClassName="text-gray-800"
           />
         </div>
       </div>
@@ -71,10 +84,12 @@ export default function Home() {
         <div className="mx-auto px-4 md:px-6">
           <FooterBase
             columns={[
-              { title: "Menu", items: [{ label: "Home", href: '/' }, { label: "About Us", href: 'about' }] },
-              { title: "Legal", items: [{ label: "Privacy Policy", href: 'privacy' }] },
+              { title: "Explore", items: [{ label: "Menu", href: "menu" }, { label: "About Us", href: "about" }] },
+              { title: "Legal", items: [{ label: "Privacy Policy", href: "privacy" }, { label: "Terms of Service", href: "terms" }] }
             ]}
-            copyrightText="© 2025 | Pizzeria"
+            logoSrc="/brand/logowhite.svg"
+            copyrightText="© 2025 Pizzeria"
+            onPrivacyClick={() => console.log('Privacy clicked')}
           />
         </div>
       </div>

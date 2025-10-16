@@ -9,7 +9,7 @@ import {
   Poppins,
   Raleway,
   Ubuntu,
-  Nunito,
+  Nunito
 } from "next/font/google";
 import "./globals.css";
 
@@ -74,39 +74,35 @@ const nunito = Nunito({
 });
 
 export const metadata: Metadata = {
-  title: "Authentic Pizzeria - Taste the Tradition",
-  description: "Experience the best of Italy with our authentic recipes and fresh ingredients. Visit us for a taste of true Italian pizza.",
-  keywords: "pizza, authentic, Italian, pizzeria, fresh ingredients",
+  title: "Pizzeria - Authentic Hand-Crafted Pizzas",
+  description: "Discover the best pizzas in town with our hand-crafted recipes and cozy atmosphere.",
+  keywords: "pizzeria, pizza, hand-crafted, authentic, local",
   openGraph: {
-    title: "Authentic Pizzeria",
-    description: "Experience the best of Italy with our authentic recipes and fresh ingredients.",
-    url: "",
+    title: "Welcome to Our Pizzeria",
+    description: "Discover the best pizzas in town with our hand-crafted recipes and cozy atmosphere.",
+    url: "https://example.com",
     siteName: "Pizzeria",
-    images: [{ url: "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "Pizzeria Interior" }],
-    type: "website",
+    images: [{ url: "https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940", alt: "A young couple having milkshakes and pizza at a cozy cafe. Relaxed and joyful atmosphere." }],
+    type: "website"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Authentic Pizzeria",
-    description: "Experience the best of Italy with our authentic recipes and fresh ingredients.",
-    images: ["https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"],
+    title: "Welcome to Our Pizzeria",
+    description: "Discover the best pizzas in town with our hand-crafted recipes and cozy atmosphere.",
+    images: ["https://images.pexels.com/photos/6188305/pexels-photo-6188305.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"]
   },
   robots: {
     index: true,
-    follow: true,
-  },
+    follow: true
+  }
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en">
-      <body
-        className={`${interTight.variable} ${playfairDisplay.variable} ${roboto.variable} ${openSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${raleway.variable} ${ubuntu.variable} ${nunito.variable} antialiased`}
-      >
-        {children}
-      
+      <body className={`${interTight.variable} ${playfairDisplay.variable} ${roboto.variable} ${openSans.variable} ${lato.variable} ${montserrat.variable} ${poppins.variable} ${raleway.variable} ${ubuntu.variable} ${nunito.variable} antialiased`}>{children}
         <script
           dangerouslySetInnerHTML={{
             __html: `
