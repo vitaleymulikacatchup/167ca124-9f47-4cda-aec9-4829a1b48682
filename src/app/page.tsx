@@ -42,10 +42,10 @@ export default function Home() {
       <div id="about" data-section="about" className="scroll-mt-24">
         <div className="mx-auto px-4 md:px-6">
           <TextAbout
-              title="Bringing Tradition to Every Slice"
-              buttons={[{ text: "Learn More", href: "about" }]}
-              className="bg-pink-100"
-              titleClassName="text-gray-800"
+            title="Bringing Tradition to Every Slice"
+            buttons={[{ text: "Learn More", href: "about" }]}
+            className="bg-pink-100"
+            titleClassName="text-gray-800"
           />
         </div>
       </div>
